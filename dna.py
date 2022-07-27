@@ -1,13 +1,13 @@
-DNA = input()
-dna = DNA.lower()+'1'
-s=1
-for i in range(1, len(dna)):
-    if dna[i-1] == dna[i]:
-      s = s+1
-      continue
-    else:
-        print(dna[i-1], end='')
-        print(s,end='')
-        s=1
-
+dna = input()
+s = 1
+for i in range(-len(dna), -1):
+    if dna[i] == dna[i+1]:
+        s = s+1
+        continue
+    elif dna[i] != dna[i+1]:
+        print(dna[i], end="")
+        print(s, end="")
+        s = 1
+print(dna[-1], end="")
+print(s)
 
