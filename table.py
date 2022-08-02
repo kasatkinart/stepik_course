@@ -14,12 +14,16 @@ for i in range(0, len(a)-1):
             for dj in range(-1, 2):
                 ai = i + di
                 aj = j + dj
-                if ai-aj == 1 or aj - ai ==1:
+                if ai + aj - i - j == 1 or ai + aj - i - j == -1:
                 # print(ai, end=' ')
                 # print(aj, end=' ')
                 # print(s)
                     s = s + int(a[ai][aj])
-                    print(s, end=' ')
+                else:
+                    continue
+        print(s)
+
+
 
 
 
