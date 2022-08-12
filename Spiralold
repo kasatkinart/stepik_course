@@ -1,0 +1,36 @@
+n = int(input())
+sprl = [[0 for j in range(n)] for i in range(n)]
+s = 1
+a = 0
+b = n
+c = 0
+d = n
+while s < n**2 + 1:
+    for i in [a]:
+        for j in range(c, d):
+            sprl[i][j] = s
+            s = s + 1
+            a = a + 1
+            
+    for j in [d - 1]:
+        for i in range(a, b):
+            sprl[i][j] = s
+            s = s + 1
+            d = d - 1
+            
+    for i in [b - 1]:
+        for j in range(d-1, c-1, -1):
+            sprl[i][j] = s
+            s = s + 1
+            b = b - 1
+    
+    for j in [c]:
+        for i in range(b-1, a-1, -1):
+            sprl[i][j] = s
+            s = s + 1
+            c = c + 1
+            
+for i in range(0, n):
+    print(' ')
+    for j in range(0, n):
+        print(sprl[i][j], end = ' ')
