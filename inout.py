@@ -18,7 +18,7 @@ for i in range(0, len(a)):
         if 'A' <= a[i] <= 'Z' or 'a' <= a[i] <= 'z':
             g = str(f*int(d))
             ouf.write(str(g))
-            ouf.write('')
+            ouf.write(' ')
             f = ''
             d = ''
             i -= 1
