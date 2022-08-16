@@ -13,7 +13,20 @@ for i, n in enumerate(a):
     s = a.count(n)
     f[n] = s
 
-print(f)
+s = sorted(f.values(), reverse=True)
+print(s)
+
+m = []
+for key, value in f.items():
+    if f[key] == max(f.values()):
+        m.append([key, value])
+
+m = min(m)
+print(m)
+for i, n in enumerate(a):
+    print(n, end=' ')
+
+
 
 
 
