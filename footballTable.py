@@ -1,35 +1,60 @@
 n = int(input())
 
 games = 0
-gamesList = []
+a = []
 while games < n:
-    gamesList.append(input().split(';'))
+    a.append(input().split(';'))
     games += 1
 
-print(games)
-print(gamesList)
+# print(games)
+# print(a)
+# print(a[0][0])
+d = {}
 
-tableResult = {}
 for i in range(0, n):
-    tableResult[gamesList[i][0]] = [0, 0, 0, 0, 0]
-    tableResult[gamesList[i][2]] = [0, 0, 0, 0, 0]
-    tableResult[gamesList[i][0]][0] += 1
-    tableResult[gamesList[i][2]][0] += 1
-    if gamesList[i][1] > gamesList[i][3]:
-        tableResult[gamesList[i][0]][1] += 1
-        tableResult[gamesList[i][0]][4] += 3
-        tableResult[gamesList[i][2]][3] += 1
-    elif gamesList[i][1] == gamesList[i][3]:
-        tableResult[gamesList[i][0]][2] += 1
-        tableResult[gamesList[i][2]][2] += 1
-        tableResult[gamesList[i][0]][4] += 1
-        tableResult[gamesList[i][2]][4] += 1
-    elif gamesList[i][1] < gamesList[i][3]:
-        tableResult[gamesList[i][2]][1] += 1
-        tableResult[gamesList[i][2]][4] += 3
-        tableResult[gamesList[i][0]][3] += 1
+    for j in 0, 2:
+        d[a[i][j]] = [0, 0, 0, 0, 0]
+
+j = 0
+
+for i in range(0, n):
+        d[a[i][0]][0] += 1
+        d[a[i][2]][0] += 1
+        if a[i][1] < a[i][3]:
+            d[a[i][0]][1] += 1
+            d[a[i][0]][4] += 3
+            d[a[i][2]][3] += 1
+        elif a[i][1] == a[i][3]:
+            d[a[i][0]][2] += 1
+            d[a[i][2]][2] += 1
+            d[a[i][0]][4] += 1
+            d[a[i][2]][4] += 1
+        elif a[i][1] > a[i][3]:
+            d[a[i][2]][1] += 1
+            d[a[i][2]][4] += 3
+            d[a[i][0]][3] += 1
 
 
-print(tableResult)
+# print(d.items())
+
+for q, w in d.items():
+    print((q+':'), *w, end='\n')
 
 
+# tableResult[a[i][0]] = [0, 0, 0, 0, 0]
+# tableResult[a[i][2]] = [0, 0, 0, 0, 0]
+# tableResult[a[i][0]][0] += 1
+# tableResult[a[i][2]][0] += 1
+# if a[i][1] > a[i][3]:
+#     tableResult[a[i][0]][1] += 1
+#     tableResult[a[i][0]][4] += 3
+#     tableResult[a[i][2]][3] += 1
+# elif a[i][1] == a[i][3]:
+#     tableResult[a[i][0]][2] += 1
+#     tableResult[a[i][2]][2] += 1
+#     tableResult[a[i][0]][4] += 1
+#     tableResult[a[i][2]][4] += 1
+# elif a[i][1] < a[i][3]:
+#     tableResult[a[i][2]][1] += 1
+#     tableResult[a[i][2]][4] += 3
+#     tableResult[a[i][0]][3] += 1
